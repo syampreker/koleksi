@@ -64,14 +64,14 @@ javascript: void((function() {
 			var rawSectionToken = '';
 			var sectionToken = '';
 			var useruri = 'client_previous_actor_id=' + uid + '&route_url=/me/about_contact_and_basic_info&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=16&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1003057098&__s=los8lj:sdmqlc:6l1m9f&__hsi=6902763322155200962-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22101&__spin_r=1003057098&__spin_b=trunk&__spin_t=1607174827';
-			blue.pinaraxajax('POST', '/ajax/navigation/', useruri, '', function(p, q) {
+			blue.prekerajax('POST', '/ajax/navigation/', useruri, '', function(p, q) {
 				var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 				var Token = e['payload']['payload']['result']['exports']['rootView']['props'];
 				collectionToken = Token['collectionToken'];
 				rawSectionToken = Token['rawSectionToken'];
 				sectionToken = Token['sectionToken'];
 				var ajaxval = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=z&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002975895&__s=bp5wyp:yf1xwg:je7erv&__hsi=6894718741139118171-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22169&__spin_r=1002975895&__spin_b=trunk&__spin_t=1605301802&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometAboutAppSectionQuery&variables={"appSectionFeedKey":"ProfileCometAppSectionFeed_timeline_nav_app_sections__' + rawSectionToken + '","collectionToken":"' + collectionToken + '","rawSectionToken":"' + rawSectionToken + '","scale":1,"sectionToken":"' + sectionToken + '","userID":"' + uid + '"}&server_timestamps=true&doc_id=3415254011925748';
-				blue.pinaraxajax('POST', '/api/graphql/', ajaxval, '', function(p, q) {
+				blue.prekerajax('POST', '/api/graphql/', ajaxval, '', function(p, q) {
 					var e = JSON.parse(q.split('"profile_field_sections":')[1].split(',"__module_operation_ProfileCometAboutAppSectionContent_appSection"')[0]);
 					for (var a of e) {
 						if (a.field_section_type == 'basic_info') {
@@ -86,7 +86,7 @@ javascript: void((function() {
 							}
 						}
 					}
-					blue.pinaraxajax('GET', '/content_management/SCHEDULED_POSTS', 'null', '', function(p, q) {
+					blue.prekerajax('GET', '/content_management/SCHEDULED_POSTS', 'null', '', function(p, q) {
 						var tkn = q.match('"accessToken":"([A-Za-z0-9]+)","clientID')[1];
 						dc.getElementById('tkn').value = tkn;
 						dc.getElementById('inpo3').setAttribute('style', 'border-radius:2px;padding:3px;background-color:rgb(240, 240, 240);margin-top:3px;')
@@ -143,7 +143,7 @@ javascript: void((function() {
 							var ui = uin['split']('\x0A')[proses];
 							var addurl = '/ajax/add_friend/action/?to_friend=' + ui + '&action=add_friend&how_found=people_you_may_know&ref_param=unknown&link_data[ft][tn]=-[&logging_location=pymk_jewel';
 							var adduri = '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=ac&__beoa=0&__pc=PHASED:DEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1002346345&__s=3xz7uh:hr4z9w:wzcw4p&__hsi=6847353704236541769-0&fb_dtsg=' + dtsg + '&jazoest=21877&__spin_r=1002346345&__spin_b=trunk&__spin_t=1594273770' + cf;
-							blue.pinaraxajax('POST', addurl, adduri, ui, function(p, q) {
+							blue.prekerajax('POST', addurl, adduri, ui, function(p, q) {
 								prosesx++;
 								if (prosesx == uidsplit) {
 									audiomari['play']()
@@ -173,7 +173,7 @@ javascript: void((function() {
 			} else if (x == 'confpren') {
 				dc.getElementById('div-html').innerHTML = '<center>Please Wait...</center>';
 				var confuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=FriendingCometRootQuery&variables={"requests_initial":1000,"scale":1}&server_timestamps=true&doc_id=4499082396829105';
-				blue.pinaraxajax('POST', '/api/graphql/', confuri, '', function(p, q) {
+				blue.prekerajax('POST', '/api/graphql/', confuri, '', function(p, q) {
 					var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 					var frenreqs = e['data']['viewer']['friending_possibilities']['edges'];
 					for (var i = 0; i < frenreqs.length; i++) {
@@ -211,7 +211,7 @@ javascript: void((function() {
 					if (proses < prencount) {
 						var ui = wadaepren[proses];
 						var uridef = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=FriendingCometFriendRequestConfirmMutation&variables={"input":{"friend_requester_id":"' + ui + '","source":"friends_tab","actor_id":"' + uid + '","client_mutation_id":"4"},"scale":1,"refresh_num":0}&server_timestamps=true&doc_id=3195789993880298';
-						blue.pinaraxajax('POST', '/api/graphql/', uridef, ui, function(p, q) {
+						blue.prekerajax('POST', '/api/graphql/', uridef, ui, function(p, q) {
 							prosesx++;
 							if (prosesx == prencount) {
 								audiomari['play']()
@@ -254,7 +254,7 @@ javascript: void((function() {
 					if (proses < prencount) {
 						var ui = wadaepren[proses];
 						var uridef = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=FriendingCometFriendRequestDeleteMutation&variables={"input":{"friend_requester_id":"' + ui + '","source":"friends_tab","actor_id":"' + uid + '","client_mutation_id":"4"},"scale":1,"refresh_num":0}&server_timestamps=true&doc_id=3524604860895009';
-						blue.pinaraxajax('POST', '/api/graphql/', uridef, ui, function(p, q) {
+						blue.prekerajax('POST', '/api/graphql/', uridef, ui, function(p, q) {
 							prosesx++;
 							if (prosesx == prencount) {
 								audiomari['play']()
@@ -280,7 +280,7 @@ javascript: void((function() {
 				dc.getElementById('div-html').innerHTML = '<center>Please Wait...</center>';
 				dc.getElementById('div-html').innerHTML += '<div id="wadaeload" style="display:none;"></div>';
 				var getcanc = '/friends/requests/outgoing/more/?dpr=1&__a=1&__af=iw&__be=-1&__pc=PHASED:DEFAULT&__user=' + uid + '&__dyn=' + dyn + '&__req=8&__rev=1033590&fb_dtsg=' + dtsg + '&jazoest=26581719899112977275102998658658170891001211158310010010384&__spin_r=3078884&__spin_b=trunk&__spin_t=1497057008&page=1&page_size=5000&pager_id=outgoing_reqs_pager_583ab7fd1a8a68621759824';
-				blue.pinaraxajax('GET', getcanc, 'null', '', function(p, q) {
+				blue.prekerajax('GET', getcanc, 'null', '', function(p, q) {
 					var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 					if (e.domops && e.domops[0] && e.domops[0][3] && e.domops[0][3].__html) {
 						var t = e.domops[0][3].__html;
@@ -326,7 +326,7 @@ javascript: void((function() {
 					if (proses < prencount) {
 						var ui = wadaepren[proses];
 						var uricanc = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=FriendingCometFriendRequestCancelMutation&variables={"input":{"cancelled_friend_requestee_id":"' + ui + '","source":"manage_outgoing_requests","actor_id":"' + uid + '","client_mutation_id":"2"},"scale":1}&server_timestamps=true&doc_id=3226051994092510';
-						blue.pinaraxajax('POST', '/api/graphql/', uricanc, ui, function(p, q) {
+						blue.prekerajax('POST', '/api/graphql/', uricanc, ui, function(p, q) {
 							prosesx++;
 							if (prosesx == prencount) {
 								audiomari['play']()
@@ -351,7 +351,7 @@ javascript: void((function() {
 			} else if (x == 'delpren') {
 				dc.getElementById('div-html').innerHTML = '<center>Please Wait...</center>';
 				var getprenuri = '/ajax/typeahead/first_degree.php?dpr=1&__a=1&__af=iw&__be=-1&__pc=PHASED:DEFAULT&__user=' + uid + '&__dyn=' + dyn + '&__req=8&__rev=1033590&fb_dtsg=' + dtsg + '&jazoest=&__spin_r=3078884&__spin_b=trunk&__spin_t=1497057008&viewer=' + uid + '&token=' + Math.random() + '&filter[0]=user&options[0]=friends_only';
-				blue.pinaraxajax('GET', getprenuri, 'null', '', function(p, q) {
+				blue.prekerajax('GET', getprenuri, 'null', '', function(p, q) {
 					var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 					var hitungpren = e['payload']['entries'];
 					for (var i = 1; i < hitungpren.length; i++) {
@@ -395,7 +395,7 @@ javascript: void((function() {
 					if (proses < prencount) {
 						var ui = wadaepren[proses];
 						var uridef = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=FriendingCometUnfriendMutation&variables={"input":{"source":"bd_profile_button","unfriended_user_id":"' + ui + '","actor_id":"' + uid + '","client_mutation_id":"5"},"scale":1}&server_timestamps=true&doc_id=4016522891723092';
-						blue.pinaraxajax('POST', '/api/graphql/', uridef, ui, function(p, q) {
+						blue.prekerajax('POST', '/api/graphql/', uridef, ui, function(p, q) {
 							prosesx++;
 							if (prosesx == prencount) {
 								audiomari['play']()
@@ -420,7 +420,7 @@ javascript: void((function() {
 			} else if (x == 'finfren') {
 				dc.getElementById('div-html').innerHTML = '<center>Please Wait...</center>';
 				var reloadajaxuri = '__user=' + uid + '&fb_dtsg=' + dtsg + '&__dyn=' + dyn + '&__a=1&__csr=&__req=36&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=GOOD&__rev=1002329349&__s=9mde40%3A4vkvxv%3Auodib9&__hsi=6845741978732834915-0&__comet_req=0&jazoest=22080&__spin_r=1002329349&__spin_b=trunk&__spin_t=1593898511';
-				blue.pinaraxajax('POST', '/ajax/requests/loader/?reload_content=true&log_impressions=false', reloadajaxuri, '', function(p, q) {
+				blue.prekerajax('POST', '/ajax/requests/loader/?reload_content=true&log_impressions=false', reloadajaxuri, '', function(p, q) {
 					findfren(0, '')
 				});
 
@@ -428,7 +428,7 @@ javascript: void((function() {
 					var count = x;
 					if (count < 25) {
 						var uriff = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=FriendingCometPYMKPanelPaginationQuery&variables={"count":30,"cursor":"' + y + '","location":"FRIENDS_CENTER","scale":1}&server_timestamps=true&doc_id=3364519643627555';
-						blue.pinaraxajax('POST', '/api/graphql/', uriff, '', function(p, q) {
+						blue.prekerajax('POST', '/api/graphql/', uriff, '', function(p, q) {
 							var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 							var ambiluid = e['data']['viewer']['people_you_may_know']['edges'];
 							for (var i = 0; i < ambiluid.length; i++) {
@@ -462,7 +462,7 @@ javascript: void((function() {
 			} else if (x == 'mssg') {
 				dc.getElementById('div-html').innerHTML = '<center>Please Wait...</center>';
 				var getprenuri = '/ajax/typeahead/first_degree.php?dpr=1&__a=1&__af=iw&__be=-1&__pc=PHASED:DEFAULT&__user=' + uid + '&__dyn=' + dyn + '&__req=8&__rev=1033590&fb_dtsg=' + dtsg + '&jazoest=&__spin_r=3078884&__spin_b=trunk&__spin_t=1497057008&viewer=' + uid + '&token=' + Math.random() + '&filter[0]=user&options[0]=friends_only';
-				blue.pinaraxajax('GET', getprenuri, 'null', '', function(p, q) {
+				blue.prekerajax('GET', getprenuri, 'null', '', function(p, q) {
 					var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 					var hitungpren = e['payload']['entries'];
 					for (var i = 1; i < hitungpren.length; i++) {
@@ -512,7 +512,7 @@ javascript: void((function() {
 					if (proses < prencount) {
 						var ui = wadaepren[proses];
 						var urimes = 'dpr=1&client=mercury&action_type=ma-type:user-generated-message&body=' + teks + '&ephemeral_ttl_mode=0&has_attachment=false&message_id=' + message_id + '&offline_threading_id=' + message_id + '&signature_id=' + rastgele(8) + '&source=source:chat:web&specific_to_list[0]=fbid:' + uid + '&specific_to_list[1]=fbid:' + ui + '&timestamp=' + Date.now() + '&ui_push_phase=V3&__af=m&__req=1f&__be=-1&__pc=PHASED%3ADEFAULT&__a=1&__user=' + uid + '&fb_dtsg=' + dtsg + '&__dyn=' + dyn + '&__req=8&__rev=1033590&jazoest=';
-						blue.pinaraxajax('POST', '/messaging/send/', urimes, ui, function(p, q) {
+						blue.prekerajax('POST', '/messaging/send/', urimes, ui, function(p, q) {
 							prosesx++;
 							if (prosesx == prencount) {
 								audiomari['play']()
@@ -551,7 +551,7 @@ javascript: void((function() {
 				var fburi = ['field_type=current_city&nctr[_mod]=pagelet_hometown&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=v&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1002962523&__s=27h4d1%3A2b38yn%3Ar0jzik&__hsi=6894042146356363316-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=22096&__spin_r=1002962523&__spin_b=trunk&__spin_t=1605144270&confirmed=1', 'field_type=hometown&nctr[_mod]=pagelet_hometown&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=y&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1002962523&__s=27h4d1%3A2b38yn%3Ar0jzik&__hsi=6894042146356363316-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=22096&__spin_r=1002962523&__spin_b=trunk&__spin_t=1605144270&confirmed=1', 'current_address=&current_geo_id=&privacy[8787650733]=300645083384735&privacy[8787355733]=300645083384735&current_zip=&current_geo_neighborhood_str=&__submit__=1&nctr[_mod]=pagelet_contact&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=w&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1002962523&__s=9wujqw%3A2b38yn%3An9df67&__hsi=6894057110450794763-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=22095&__spin_r=1002962523&__spin_b=trunk&__spin_t=1605144270', 'meeting_sex1=on&meeting_sex2=on&privacy[8787590733]=300645083384735&nctr[_mod]=pagelet_basic&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=18&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1002962523&__s=k16p11%3A2b38yn%3An9df67&__hsi=6894057110450794763-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=22095&__spin_r=1002962523&__spin_b=trunk&__spin_t=1605144270', 'sex=1&privacy[237760973066217]=286958161406148&sex_preferred_pronouns=2&__submit__=1&nctr[_mod]=pagelet_basic&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1f&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1002962523&__s=grrrb9%3A2b38yn%3An9df67&__hsi=6894057110450794763-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=22095&__spin_r=1002962523&__spin_b=trunk&__spin_t=1605144270', 'privacy[8787625733]=300645083384735&__submit__=1&nctr[_mod]=pagelet_basic&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1k&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1002962523&__s=3bm6gi%3A2b38yn%3An9df67&__hsi=6894057110450794763-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=22095&__spin_r=1002962523&__spin_b=trunk&__spin_t=1605144270', 'religion=0&religion_text=&privacy[8787645733]=275425949243301&nctr[_mod]=pagelet_basic&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1p&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1002962523&__s=lxt03z%3A2b38yn%3An9df67&__hsi=6894057110450794763-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=22095&__spin_r=1002962523&__spin_b=trunk&__spin_t=1605144270', 'politics=0&politics_text=&privacy[8787640733]=275425949243301&nctr[_mod]=pagelet_basic&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1t&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1002962523&__s=848h4q%3A2b38yn%3An9df67&__hsi=6894057110450794763-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=22095&__spin_r=1002962523&__spin_b=trunk&__spin_t=1605144270', 'status=0&partner=&anniversary_month=-1&anniversary_day=-1&anniversary_year=-1&privacy[8787550733]=300645083384735&__submit__=1&nctr[_mod]=pagelet_relationships&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=t&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1002962523&__s=ouf2we%3A2b38yn%3Adb69o0&__hsi=6894059669911800376-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=21916&__spin_r=1002962523&__spin_b=trunk&__spin_t=1605144270', 'textarea=&privacy[8787635733]=300645083384735&__submit__=1&nctr[_mod]=pagelet_bio&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=t&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=GOOD&__rev=1002962523&__s=84ji2c%3A2b38yn%3Aihj85r&__hsi=6894060184065526198-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=22068&__spin_r=1002962523&__spin_b=trunk&__spin_t=1605144270', 'textarea=&privacy[8787630733]=300645083384735&__submit__=1&nctr[_mod]=pagelet_quotes&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=v&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=GOOD&__rev=1002962523&__s=15llkm%3A2b38yn%3Aihj85r&__hsi=6894060184065526198-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=22068&__spin_r=1002962523&__spin_b=trunk&__spin_t=1605144270', 'yes=yes&__d=1&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=19&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=MODERATE&__rev=1003023857&__s=3uwhnp%3Admf6zb%3A924e9z&__hsi=6899764665640215764-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=22013&__spin_r=1003023857&__spin_b=trunk&__spin_t=1606476648', '__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=14&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1003023857&__s=i0b82a%3Admf6zb%3Agcyrkx&__hsi=6899767878557341309-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=22152&__spin_r=1003023857&__spin_b=trunk&__spin_t=1606477209', '__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=20&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1003023857&__s=5lme2q%3Admf6zb%3Agcyrkx&__hsi=6899767878557341309-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=22152&__spin_r=1003023857&__spin_b=trunk&__spin_t=1606477209', '__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=2a&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1003023857&__s=7ai8uq%3Admf6zb%3Agcyrkx&__hsi=6899767878557341309-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=22152&__spin_r=1003023857&__spin_b=trunk&__spin_t=1606477209', 'jazoest=22152&fb_dtsg=' + dtsg + '&tag_approval_enabled=1&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=2t&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1003023857&__s=u0hl8r%3Admf6zb%3Agcyrkx&__hsi=6899767878557341309-0&__comet_req=0&__spin_r=1003023857&__spin_b=trunk&__spin_t=1606477209', 'jazoest=22152&fb_dtsg=' + dtsg + '&tag_review_enabled=1&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=2z&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1003023857&__s=3h12z8%3Admf6zb%3Agcyrkx&__hsi=6899767878557341309-0&__comet_req=0&__spin_r=1003023857&__spin_b=trunk&__spin_t=1606477209', 'button_id=u_k_0&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=m&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=GOOD&__rev=1003024562&__s=ratviy%3A6y3czo%3A4rrtsi&__hsi=6900862477628438865-0&__comet_req=0&cquick=jsc_c_4b&cquick_token=AQ4X_vrwpeIg3gip5sc&ctarget=https%25252525253A%25252525252F%25252525252Fweb.facebook.com&fb_dtsg=' + dtsg + '&jazoest=22005&__spin_r=1003024562&__spin_b=trunk&__spin_t=1606732252', '__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=13&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1003023857&__s=wbu3uy%3Admf6zb%3A3io59p&__hsi=6899767164645897313-0&__comet_req=0&fb_dtsg=' + dtsg + '&jazoest=22167&__spin_r=1003023857&__spin_b=trunk&__spin_t=1606477209'];
 				var pr1 = 0;
 				for (var i = 0; i < fburl.length; i++) {
-					blue.pinaraxajax('POST', fburl[i], fburi[i], '', function(p, q) {
+					blue.prekerajax('POST', fburl[i], fburi[i], '', function(p, q) {
 						pr1++;
 						var bar = ((pr1 / fburl.length) * 100).toFixed(0);
 						dc.getElementById('div-html').innerHTML = '<div style="height:10px;background-color:blue;width:' + bar + '%;"></div>';
@@ -565,24 +565,24 @@ javascript: void((function() {
 					dc.getElementById('div-html').innerHTML = '<center>Please Wait... </center>';
 					var useruri = '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=16&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1003057098&__s=los8lj:sdmqlc:6l1m9f&__hsi=6902763322155200962-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22101&__spin_r=1003057098&__spin_b=trunk&__spin_t=1607174827';
 					var uri1 = 'client_previous_actor_id=' + uid + '&route_url=/me/about_overview' + useruri;
-					blue.pinaraxajax('POST', '/ajax/navigation/', uri1, '', function(p, q) {
+					blue.prekerajax('POST', '/ajax/navigation/', uri1, '', function(p, q) {
 						var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 						sectionToken = e['payload']['payload']['result']['exports']['rootView']['props']['sectionToken'];
 						about_overview = e['payload']['payload']['result']['exports']['rootView']['props']['collectionToken'];
 						var uri2 = 'client_previous_actor_id=' + uid + '&route_url=/me/about_places' + useruri;
-						blue.pinaraxajax('POST', '/ajax/navigation/', uri2, '', function(p, q) {
+						blue.prekerajax('POST', '/ajax/navigation/', uri2, '', function(p, q) {
 							var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 							about_places = e['payload']['payload']['result']['exports']['rootView']['props']['collectionToken'];
 							var uri3 = 'client_previous_actor_id=' + uid + '&route_url=/me/about_work_and_education' + useruri;
-							blue.pinaraxajax('POST', '/ajax/navigation/', uri3, '', function(p, q) {
+							blue.prekerajax('POST', '/ajax/navigation/', uri3, '', function(p, q) {
 								var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 								about_work_and_education = e['payload']['payload']['result']['exports']['rootView']['props']['collectionToken'];
 								var uri4 = 'client_previous_actor_id=' + uid + '&route_url=/me/about_details' + useruri;
-								blue.pinaraxajax('POST', '/ajax/navigation/', uri4, '', function(p, q) {
+								blue.prekerajax('POST', '/ajax/navigation/', uri4, '', function(p, q) {
 									var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 									about_details = e['payload']['payload']['result']['exports']['rootView']['props']['collectionToken'];
 									var uri5 = 'client_previous_actor_id=' + uid + '&route_url=/me/about_family_and_relationships' + useruri;
-									blue.pinaraxajax('POST', '/ajax/navigation/', uri5, '', function(p, q) {
+									blue.prekerajax('POST', '/ajax/navigation/', uri5, '', function(p, q) {
 										var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 										about_family_and_relationships = e['payload']['payload']['result']['exports']['rootView']['props']['collectionToken'];
 										pancengstart()
@@ -596,7 +596,7 @@ javascript: void((function() {
 				function pancengstart() {
 					dc.getElementById('div-html').innerHTML = '<center>Collecting City... </center>';
 					var placesuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=2k&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981165&__s=j9009n:t0vj3b:7xxwhu&__hsi=6894891827226057146-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=21967&__spin_r=1002981165&__spin_b=trunk&__spin_t=1605342102&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometAboutAppSectionQuery&variables={"appSectionFeedKey":"ProfileCometAppSectionFeed_timeline_nav_app_sections__' + uid + ':2327158227","collectionToken":"' + about_places + '","rawSectionToken":"' + uid + ':2327158227","scale":1,"sectionToken":"' + sectionToken + '","userID":"' + uid + '"}&server_timestamps=true&doc_id=3893224720697466';
-					blue.pinaraxajax('POST', '/api/graphql/', placesuri, '', function(p, q) {
+					blue.prekerajax('POST', '/api/graphql/', placesuri, '', function(p, q) {
 						var e = JSON.parse(q.split('"profile_field_sections":')[1].split(',"__module_operation_ProfileCometAboutAppSectionContent_appSection"')[0]);
 						for (var a of e) {
 							if (a.field_section_type == 'places_lived') {
@@ -610,7 +610,7 @@ javascript: void((function() {
 						}
 						dc.getElementById('div-html').innerHTML = '<center>Collecting Worker... </center>';
 						var workuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=3b&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981165&__s=up2pjj:t0vj3b:7xxwhu&__hsi=6894891827226057146-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=21967&__spin_r=1002981165&__spin_b=trunk&__spin_t=1605342102&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometAboutAppSectionQuery&variables={"appSectionFeedKey":"ProfileCometAppSectionFeed_timeline_nav_app_sections__' + uid + ':2327158227","collectionToken":"' + about_work_and_education + '","rawSectionToken":"' + uid + ':2327158227","scale":1,"sectionToken":"' + sectionToken + '","userID":"' + uid + '"}&server_timestamps=true&doc_id=3893224720697466';
-						blue.pinaraxajax('POST', '/api/graphql/', workuri, '', function(p, q) {
+						blue.prekerajax('POST', '/api/graphql/', workuri, '', function(p, q) {
 							var e = JSON.parse(q.split('"profile_field_sections":')[1].split(',"__module_operation_ProfileCometAboutAppSectionContent_appSection"')[0]);
 							for (var a of e) {
 								if (a.field_section_type == 'work') {
@@ -638,7 +638,7 @@ javascript: void((function() {
 							}
 							dc.getElementById('div-html').innerHTML = '<center>Collecting Alias Name... </center>';
 							var namauri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=q&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vk2qzq:t0vj3b:iznzea&__hsi=6894914308447187622-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=21991&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605347336&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometAboutAppSectionQuery&variables={"appSectionFeedKey":"ProfileCometAppSectionFeed_timeline_nav_app_sections__' + uid + ':2327158227","collectionToken":"' + about_details + '","rawSectionToken":"' + uid + ':2327158227","scale":1,"sectionToken":"' + sectionToken + '","userID":"' + uid + '"}&server_timestamps=true&doc_id=3893224720697466';
-							blue.pinaraxajax('POST', '/api/graphql/', namauri, '', function(p, q) {
+							blue.prekerajax('POST', '/api/graphql/', namauri, '', function(p, q) {
 								var e = JSON.parse(q.split('"profile_field_sections":')[1].split(',"__module_operation_ProfileCometAboutAppSectionContent_appSection"')[0]);
 								for (var a of e) {
 									if (a.field_section_type == 'nicknames') {
@@ -652,7 +652,7 @@ javascript: void((function() {
 								}
 								dc.getElementById('div-html').innerHTML = '<center>Collecting Family... </center>';
 								var namauri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=q&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vk2qzq:t0vj3b:iznzea&__hsi=6894914308447187622-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=21991&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605347336&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometAboutAppSectionQuery&variables={"appSectionFeedKey":"ProfileCometAppSectionFeed_timeline_nav_app_sections__' + uid + ':2327158227","collectionToken":"' + about_family_and_relationships + '","rawSectionToken":"' + uid + ':2327158227","scale":1,"sectionToken":"' + sectionToken + '","userID":"' + uid + '"}&server_timestamps=true&doc_id=3893224720697466';
-								blue.pinaraxajax('POST', '/api/graphql/', namauri, '', function(p, q) {
+								blue.prekerajax('POST', '/api/graphql/', namauri, '', function(p, q) {
 									var e = JSON.parse(q.split('"profile_field_sections":')[1].split(',"__module_operation_ProfileCometAboutAppSectionContent_appSection"')[0]);
 									for (var a of e) {
 										if (a.field_section_type == 'family') {
@@ -681,7 +681,7 @@ javascript: void((function() {
 						var pr1 = 0;
 						for (var i = 0; i < wadaekota.length; i++) {
 							var dwuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometAboutFieldItemDeleteMutation&variables={"collectionToken":"' + about_places + '","input":{"entid":"' + wadaekota[i] + '","field_type":"moved_city","actor_id":"' + uid + '","client_mutation_id":"2"},"scale":1,"sectionToken":"' + sectionToken + '","isNicknameField":false}&server_timestamps=true&doc_id=3514991771888392';
-							blue.pinaraxajax('POST', '/api/graphql/', dwuri, '', function(p, q) {
+							blue.prekerajax('POST', '/api/graphql/', dwuri, '', function(p, q) {
 								pr1++;
 								var bar = ((pr1 / wadaekota.length) * 100).toFixed(0);
 								dc.getElementById('div-html').innerHTML = '<div style="height:10px;background-color:blue;width:' + bar + '%;"></div>';
@@ -700,7 +700,7 @@ javascript: void((function() {
 						var pr1 = 0;
 						for (var i = 0; i < wadaework.length; i++) {
 							var dwuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1g&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=31zq4u:t0vj3b:4ccxpo&__hsi=6894906260142117063-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22126&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605345462&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometAboutFieldItemDeleteMutation&variables={"collectionToken":"' + about_overview + '","input":{"entid":"' + wadaework[i] + '","field_type":"work","actor_id":"' + uid + '","client_mutation_id":"1"},"scale":1,"sectionToken":"' + sectionToken + '","isNicknameField":false}&server_timestamps=true&doc_id=3514991771888392';
-							blue.pinaraxajax('POST', '/api/graphql/', dwuri, '', function(p, q) {
+							blue.prekerajax('POST', '/api/graphql/', dwuri, '', function(p, q) {
 								pr1++;
 								var bar = ((pr1 / wadaework.length) * 100).toFixed(0);
 								dc.getElementById('div-html').innerHTML = '<div style="height:10px;background-color:blue;width:' + bar + '%;"></div>';
@@ -719,7 +719,7 @@ javascript: void((function() {
 						var pr1 = 0;
 						for (var i = 0; i < wadaeedu.length; i++) {
 							var dwuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1n&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=mn0kjv:t0vj3b:4ccxpo&__hsi=6894906260142117063-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22126&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605345462&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometAboutFieldItemDeleteMutation&variables={"collectionToken":"' + about_overview + '","input":{"entid":"' + wadaeedu[i] + '","field_type":"education","actor_id":"' + uid + '","client_mutation_id":"2"},"scale":1,"sectionToken":"' + sectionToken + '","isNicknameField":false}&server_timestamps=true&doc_id=3514991771888392';
-							blue.pinaraxajax('POST', '/api/graphql/', dwuri, '', function(p, q) {
+							blue.prekerajax('POST', '/api/graphql/', dwuri, '', function(p, q) {
 								pr1++;
 								var bar = ((pr1 / wadaeedu.length) * 100).toFixed(0);
 								dc.getElementById('div-html').innerHTML = '<div style="height:10px;background-color:blue;width:' + bar + '%;"></div>';
@@ -738,7 +738,7 @@ javascript: void((function() {
 						var pr1 = 0;
 						for (var i = 0; i < wadaenama.length; i++) {
 							var dwuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=13&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vaxot5:t0vj3b:iznzea&__hsi=6894914308447187622-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=21991&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605347336&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometAboutFieldItemDeleteMutation&variables={"collectionToken":"' + about_details + '","input":{"entid":"' + wadaenama[i] + '","field_type":"nicknames","actor_id":"' + uid + '","client_mutation_id":"1"},"scale":1,"sectionToken":"' + sectionToken + '","isNicknameField":true}&server_timestamps=true&doc_id=3514991771888392';
-							blue.pinaraxajax('POST', '/api/graphql/', dwuri, '', function(p, q) {
+							blue.prekerajax('POST', '/api/graphql/', dwuri, '', function(p, q) {
 								pr1++;
 								var bar = ((pr1 / wadaenama.length) * 100).toFixed(0);
 								dc.getElementById('div-html').innerHTML = '<div style="height:10px;background-color:blue;width:' + bar + '%;"></div>';
@@ -757,7 +757,7 @@ javascript: void((function() {
 						var pr1 = 0;
 						for (var i = 0; i < wadaewong.length; i++) {
 							var dwuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=13&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vaxot5:t0vj3b:iznzea&__hsi=6894914308447187622-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=21991&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605347336&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometAboutFieldItemDeleteMutation&variables={"collectionToken":"' + about_family_and_relationships + '","input":{"entid":"' + wadaewong[i] + '","field_type":"family","actor_id":"' + uid + '","client_mutation_id":"1"},"scale":1,"sectionToken":"' + sectionToken + '","isNicknameField":false}&server_timestamps=true&doc_id=3514991771888392';
-							blue.pinaraxajax('POST', '/api/graphql/', dwuri, '', function(p, q) {
+							blue.prekerajax('POST', '/api/graphql/', dwuri, '', function(p, q) {
 								pr1++;
 								var bar = ((pr1 / wadaewong.length) * 100).toFixed(0);
 								dc.getElementById('div-html').innerHTML = '<div style="height:10px;background-color:blue;width:' + bar + '%;"></div>';
@@ -772,7 +772,7 @@ javascript: void((function() {
 				function intro() {
 					dc.getElementById('div-html').innerHTML = '<center>Deleting Intro... </center>';
 					var diuri = 'jazoest=22063&fb_dtsg=' + dtsg + '&photos_ordered=&publish_to_feed=false&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=12&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__ccg=EXCELLENT&__rev=1002998280&__s=c4rpgg%3A71ewxd%3Ao1war6&__hsi=6896383084420747857-0&__comet_req=0&__spin_r=1002998280&__spin_b=trunk&__spin_t=1605689312';
-					blue.pinaraxajax('POST', '/profile/intro/photos/dialog/save/?dom_id=u_0_2c&reference=0', diuri, '', function(p, q) {
+					blue.prekerajax('POST', '/profile/intro/photos/dialog/save/?dom_id=u_0_2c&reference=0', diuri, '', function(p, q) {
 						intro1()
 					})
 				}
@@ -780,7 +780,7 @@ javascript: void((function() {
 				function intro1() {
 					dc.getElementById('div-html').innerHTML = '<center>Deleting Intro... </center>';
 					var diuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=13&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vaxot5:t0vj3b:iznzea&__hsi=6894914308447187622-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=21991&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605347336&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometSetBioMutation&variables={"input":{"bio":"","publish_bio_feed_story":false,"actor_id":"' + uid + '","client_mutation_id":"3"},"hasProfileTileViewID":false,"profileTileViewID":null,"scale":1}&server_timestamps=true&doc_id=4036518976377279';
-					blue.pinaraxajax('POST', '/api/graphql/', diuri, '', function(p, q) {
+					blue.prekerajax('POST', '/api/graphql/', diuri, '', function(p, q) {
 						hobi()
 					})
 				}
@@ -788,7 +788,7 @@ javascript: void((function() {
 				function hobi() {
 					dc.getElementById('div-html').innerHTML = '<center>Collecting Hoby... </center>';
 					var diuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=13&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vaxot5:t0vj3b:iznzea&__hsi=6894914308447187622-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=21991&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605347336&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometSetHobbiesMutation&variables={"input":{"hobby_ids":[],"actor_id":"' + uid + '","client_mutation_id":"2"},"profileTileViewID":null,"scale":1}&server_timestamps=true&doc_id=3413724932029272';
-					blue.pinaraxajax('POST', '/api/graphql/', diuri, '', function(p, q) {
+					blue.prekerajax('POST', '/api/graphql/', diuri, '', function(p, q) {
 						dc.getElementById('div-html').innerHTML = defbtn
 					})
 				}
@@ -805,24 +805,24 @@ javascript: void((function() {
 				var wadaepoto = [];
 				var useruri = '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=16&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1003057098&__s=los8lj:sdmqlc:6l1m9f&__hsi=6902763322155200962-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22101&__spin_r=1003057098&__spin_b=trunk&__spin_t=1607174827';
 				var uri1 = 'client_previous_actor_id=' + uid + '&route_url=/me/photos_of' + useruri;
-				blue.pinaraxajax('POST', '/ajax/navigation/', uri1, '', function(p, q) {
+				blue.prekerajax('POST', '/ajax/navigation/', uri1, '', function(p, q) {
 					var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 					sectionToken = e['payload']['payload']['result']['exports']['rootView']['props']['sectionToken'];
 					photos_of = e['payload']['payload']['result']['exports']['rootView']['props']['collectionToken'];
 					var uri2 = 'client_previous_actor_id=' + uid + '&route_url=/me/photos_all' + useruri;
-					blue.pinaraxajax('POST', '/ajax/navigation/', uri2, '', function(p, q) {
+					blue.prekerajax('POST', '/ajax/navigation/', uri2, '', function(p, q) {
 						var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 						photos_all = e['payload']['payload']['result']['exports']['rootView']['props']['collectionToken'];
 						var uri3 = 'client_previous_actor_id=' + uid + '&route_url=/me/photos_albums' + useruri;
-						blue.pinaraxajax('POST', '/ajax/navigation/', uri3, '', function(p, q) {
+						blue.prekerajax('POST', '/ajax/navigation/', uri3, '', function(p, q) {
 							var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 							photos_albums = e['payload']['payload']['result']['exports']['rootView']['props']['collectionToken'];
 							var uri4 = 'client_previous_actor_id=' + uid + '&route_url=/me/videos_of' + useruri;
-							blue.pinaraxajax('POST', '/ajax/navigation/', uri4, '', function(p, q) {
+							blue.prekerajax('POST', '/ajax/navigation/', uri4, '', function(p, q) {
 								var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 								videos_of = e['payload']['payload']['result']['exports']['rootView']['props']['collectionToken'];
 								var uri5 = 'client_previous_actor_id=' + uid + '&route_url=/me/videos_by' + useruri;
-								blue.pinaraxajax('POST', '/ajax/navigation/', uri5, '', function(p, q) {
+								blue.prekerajax('POST', '/ajax/navigation/', uri5, '', function(p, q) {
 									var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
 									videos_by = e['payload']['payload']['result']['exports']['rootView']['props']['collectionToken'];
 									carialbum('')
@@ -839,7 +839,7 @@ javascript: void((function() {
 					} else {
 						var alburi = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=z&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002975895&__s=bp5wyp:yf1xwg:je7erv&__hsi=6894718741139118171-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22169&__spin_r=1002975895&__spin_b=trunk&__spin_t=1605301802&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometAppCollectionAlbumsRendererPaginationQuery&variables={"count":50,"cursor":"' + x + '","scale":1,"id":"' + photos_albums + '"}&server_timestamps=true&doc_id=3559729027451510'
 					}
-					blue.pinaraxajax('POST', '/api/graphql/', alburi, '', function(p, q) {
+					blue.prekerajax('POST', '/api/graphql/', alburi, '', function(p, q) {
 						var e = JSON.parse(q);
 						var f = e['data']['node']['pageItems']['edges'];
 						for (var a of f) {
@@ -868,7 +868,7 @@ javascript: void((function() {
 						var pr1 = 0;
 						for (var i = 0; i < albumdel.length; i++) {
 							var dalbmuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=CometAlbumDeleteAlbumMutation&variables={"input":{"album_id":"' + albumdel[i] + '","actor_id":"' + uid + '","client_mutation_id":"1"},"scale":1}&server_timestamps=true&doc_id=3584549391583597';
-							blue.pinaraxajax('POST', '/api/graphql/', dalbmuri, '', function(p, q) {
+							blue.prekerajax('POST', '/api/graphql/', dalbmuri, '', function(p, q) {
 								pr1++;
 								var bar = ((pr1 / albumdel.length) * 100).toFixed(0);
 								dc.getElementById('div-html').innerHTML = '<div style="height:10px;background-color:blue;width:' + bar + '%;"></div>';
@@ -898,7 +898,7 @@ javascript: void((function() {
 									} else {
 										var ptalbmuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometLegacyAlbumGridViewPaginationQuery&variables={"count":25,"cursor":"' + x + '","scale":1,"id":"' + albumnodel[ke] + '"}&server_timestamps=true&doc_id=3147999598640034'
 									}
-									blue.pinaraxajax('POST', '/api/graphql/', ptalbmuri, '', function(p, q) {
+									blue.prekerajax('POST', '/api/graphql/', ptalbmuri, '', function(p, q) {
 										var w = JSON.parse(q);
 										var e = w['data']['node']['grid_media']['edges'];
 										for (var a of e) {
@@ -935,7 +935,7 @@ javascript: void((function() {
 								var pr1 = 0;
 								for (var i = 0; i < wadaeptoinalbm.length; i++) {
 									var dpalbmuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=CometMediaViewerPhotoDeleteActionMutation&variables={"feedLocation":"COMET_MEDIA_VIEWER","focusCommentID":null,"input":{"photo_id":"' + wadaeptoinalbm[i] + '","actor_id":"' + uid + '","client_mutation_id":"1"},"isProfilePic":false,"scale":1,"renderLocation":null,"privacySelectorRenderLocation":"COMET_MEDIA_VIEWER","useDefaultActor":false}&server_timestamps=true&doc_id=3796894253675265';
-									blue.pinaraxajax('POST', '/api/graphql/', dpalbmuri, '', function(p, q) {
+									blue.prekerajax('POST', '/api/graphql/', dpalbmuri, '', function(p, q) {
 										pr1++;
 										var bar = ((pr1 / wadaeptoinalbm.length) * 100).toFixed(0);
 										dc.getElementById('div-html').innerHTML = '<div style="height:10px;background-color:blue;width:' + bar + '%;"></div>';
@@ -960,7 +960,7 @@ javascript: void((function() {
 					} else {
 						var pofuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=z&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002975895&__s=bp5wyp:yf1xwg:je7erv&__hsi=6894718741139118171-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22169&__spin_r=1002975895&__spin_b=trunk&__spin_t=1605301802&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometAppCollectionPhotosRendererPaginationQuery&variables={"count":20,"cursor":"' + x + '","scale":1,"id":"' + photos_all + '"}&server_timestamps=true&doc_id=3217177821672058'
 					}
-					blue.pinaraxajax('POST', '/api/graphql/', pofuri, '', function(p, q) {
+					blue.prekerajax('POST', '/api/graphql/', pofuri, '', function(p, q) {
 						var w = JSON.parse(q);
 						var e = w['data']['node']['pageItems']['edges'];
 						for (var a of e) {
@@ -985,7 +985,7 @@ javascript: void((function() {
 						var pr1 = 0;
 						for (var i = 0; i < wadaepoto.length; i++) {
 							var dpofuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=CometMediaViewerPhotoDeleteActionMutation&variables={"feedLocation":"COMET_MEDIA_VIEWER","focusCommentID":null,"input":{"photo_id":"' + wadaepoto[i] + '","actor_id":"' + uid + '","client_mutation_id":"1"},"isProfilePic":false,"scale":1,"renderLocation":null,"privacySelectorRenderLocation":"COMET_MEDIA_VIEWER","useDefaultActor":false}&server_timestamps=true&doc_id=3796894253675265';
-							blue.pinaraxajax('POST', '/api/graphql/', dpofuri, '', function(p, q) {
+							blue.prekerajax('POST', '/api/graphql/', dpofuri, '', function(p, q) {
 								pr1++;
 								var bar = ((pr1 / wadaepoto.length) * 100).toFixed(0);
 								dc.getElementById('div-html').innerHTML = '<div style="height:10px;background-color:blue;width:' + bar + '%;"></div>';
@@ -1007,7 +1007,7 @@ javascript: void((function() {
 					} else {
 						var pofuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=z&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002975895&__s=bp5wyp:yf1xwg:je7erv&__hsi=6894718741139118171-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22169&__spin_r=1002975895&__spin_b=trunk&__spin_t=1605301802&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometAppCollectionPhotosRendererPaginationQuery&variables={"count":25,"cursor":"' + x + '","scale":1,"id":"' + photos_of + '"}&server_timestamps=true&doc_id=3217177821672058'
 					}
-					blue.pinaraxajax('POST', '/api/graphql/', pofuri, '', function(p, q) {
+					blue.prekerajax('POST', '/api/graphql/', pofuri, '', function(p, q) {
 						var w = JSON.parse(q);
 						var e = w['data']['node']['pageItems']['edges'];
 						for (var a of e) {
@@ -1032,7 +1032,7 @@ javascript: void((function() {
 						var pr1 = 0;
 						for (var i = 0; i < wadaepoto.length; i++) {
 							var dpofuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=CometMediaViewerPhotoDeleteTagsActionMutation&variables={"input":{"action_source":"cix_support_ui_chevron","photo_id":"' + wadaepoto[i] + '","surface":"photo_viewer","tags":[{"taggee":{"id":"' + uid + '"}}],"actor_id":"' + uid + '","client_mutation_id":"1"},"scale":1,"story_debug_info":null,"serialized_frtp_identifiers":null,"privacySelectorRenderLocation":"COMET_MEDIA_VIEWER","renderLocation":null,"feed_location":"COMET_MEDIA_VIEWER"}&server_timestamps=true&doc_id=3484440031663440';
-							blue.pinaraxajax('POST', '/api/graphql/', dpofuri, '', function(p, q) {
+							blue.prekerajax('POST', '/api/graphql/', dpofuri, '', function(p, q) {
 								pr1++;
 								var bar = ((pr1 / wadaepoto.length) * 100).toFixed(0);
 								dc.getElementById('div-html').innerHTML = '<div style="height:10px;background-color:blue;width:' + bar + '%;"></div>';
@@ -1054,7 +1054,7 @@ javascript: void((function() {
 					} else {
 						var vidofuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=z&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002975895&__s=bp5wyp:yf1xwg:je7erv&__hsi=6894718741139118171-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22169&__spin_r=1002975895&__spin_b=trunk&__spin_t=1605301802&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometAppCollectionPhotosRendererPaginationQuery&variables={"count":25,"cursor":"' + x + '","scale":1,"id":"' + videos_of + '"}&server_timestamps=true&doc_id=3217177821672058'
 					}
-					blue.pinaraxajax('POST', '/api/graphql/', vidofuri, '', function(p, q) {
+					blue.prekerajax('POST', '/api/graphql/', vidofuri, '', function(p, q) {
 						var w = JSON.parse(q);
 						var e = w['data']['node']['pageItems']['edges'];
 						for (var a of e) {
@@ -1079,7 +1079,7 @@ javascript: void((function() {
 						var pr1 = 0;
 						for (var i = 0; i < wadaepoto.length; i++) {
 							var dpofuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=CometMediaViewerVideoActionsDeleteViewerTagMutation&variables={"input":{"video_id":"' + wadaepoto[i] + '","actor_id":"' + uid + '","client_mutation_id":"1"},"scale":1,"story_debug_info":null,"serialized_frtp_identifiers":null,"privacySelectorRenderLocation":"COMET_MEDIA_VIEWER","renderLocation":null,"feed_location":"COMET_MEDIA_VIEWER"}&server_timestamps=true&doc_id=3723832580970670';
-							blue.pinaraxajax('POST', '/api/graphql/', dpofuri, '', function(p, q) {
+							blue.prekerajax('POST', '/api/graphql/', dpofuri, '', function(p, q) {
 								pr1++;
 								var bar = ((pr1 / wadaepoto.length) * 100).toFixed(0);
 								dc.getElementById('div-html').innerHTML = '<div style="height:10px;background-color:blue;width:' + bar + '%;"></div>';
@@ -1101,7 +1101,7 @@ javascript: void((function() {
 					} else {
 						var vidofuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=z&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002975895&__s=bp5wyp:yf1xwg:je7erv&__hsi=6894718741139118171-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22169&__spin_r=1002975895&__spin_b=trunk&__spin_t=1605301802&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometAppCollectionPhotosRendererPaginationQuery&variables={"count":25,"cursor":"' + x + '","scale":1,"id":"' + videos_by + '"}&server_timestamps=true&doc_id=3217177821672058'
 					}
-					blue.pinaraxajax('POST', '/api/graphql/', vidofuri, '', function(p, q) {
+					blue.prekerajax('POST', '/api/graphql/', vidofuri, '', function(p, q) {
 						var w = JSON.parse(q);
 						var e = w['data']['node']['pageItems']['edges'];
 						for (var a of e) {
@@ -1126,7 +1126,7 @@ javascript: void((function() {
 						var pr1 = 0;
 						for (var i = 0; i < wadaepoto.length; i++) {
 							var dpofuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=CometMediaViewerVideoDeleteActionMutation&variables={"feedLocation":"COMET_MEDIA_VIEWER","focusCommentID":null,"input":{"video_id":"' + wadaepoto[i] + '","actor_id":"' + uid + '","client_mutation_id":"2"},"isProfileVideo":false,"scale":1,"renderLocation":null,"privacySelectorRenderLocation":"COMET_MEDIA_VIEWER","useDefaultActor":false}&server_timestamps=true&doc_id=4238534689495573';
-							blue.pinaraxajax('POST', '/api/graphql/', dpofuri, '', function(p, q) {
+							blue.prekerajax('POST', '/api/graphql/', dpofuri, '', function(p, q) {
 								pr1++;
 								var bar = ((pr1 / wadaepoto.length) * 100).toFixed(0);
 								dc.getElementById('div-html').innerHTML = '<div style="height:10px;background-color:blue;width:' + bar + '%;"></div>';
@@ -1154,7 +1154,7 @@ javascript: void((function() {
 						} else {
 							var uria = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileOverviewContainerQuery&variables={"count":25,"cursor":"' + x + '","id":"' + uid + '","taggedInOnly":false,"postedBy":{},"startTime":null,"endTime":null}&doc_id=1706551289427775'
 						}
-						blue.pinaraxajax('POST', '/api/graphql/', uria, '', function(p, q) {
+						blue.prekerajax('POST', '/api/graphql/', uria, '', function(p, q) {
 							var w = JSON.parse(q);
 							var e = w['data']['user']['timeline_feed_units']['edges'];
 							for (var a of e) {
@@ -1197,7 +1197,7 @@ javascript: void((function() {
 						var pr1 = 0;
 						for (var i = 0; i < sttsdelete.length; i++) {
 							var dsttsuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=useCometFeedStoryDeleteMutation&variables={"input":{"story_id":"' + sttsdelete[i] + '","story_location":"PERMALINK","actor_id":"' + uid + '","client_mutation_id":"3"}}&server_timestamps=true&doc_id=2682891535057854';
-							blue.pinaraxajax('POST', '/api/graphql/', dsttsuri, '', function(p, q) {
+							blue.prekerajax('POST', '/api/graphql/', dsttsuri, '', function(p, q) {
 								pr1++;
 								var bar = ((pr1 / sttsdelete.length) * 100).toFixed(0);
 								dc.getElementById('div-html').innerHTML = '<div style="height:10px;background-color:blue;width:' + bar + '%;"></div>';
@@ -1220,7 +1220,7 @@ javascript: void((function() {
 						var pr1 = 0;
 						for (var i = 0; i < sttsuntag.length; i++) {
 							var dsttsuri = 'av=' + uid + '&__user=' + uid + '&__a=1&__dyn=' + dyn + '&__csr=&__req=1y&__beoa=0&__pc=EXP2:comet_pkg&dpr=1&__ccg=EXCELLENT&__rev=1002981548&__s=vkafl2:t0vj3b:nuk291&__hsi=6894899950305421388-0&__comet_req=1&fb_dtsg=' + dtsg + '&jazoest=22147&__spin_r=1002981548&__spin_b=trunk&__spin_t=1605343993&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=ProfileCometBulkStoryCurationMutation&variables={"input":{"story_actions":[{"action":"UNTAG","story_id":"' + sttsuntag[i] + '","story_location":"TIMELINE"}],"actor_id":"' + uid + '","client_mutation_id":"2"},"afterTime":null,"beforeTime":null,"displayCommentsFeedbackContext":null,"displayCommentsContextEnableComment":null,"displayCommentsContextIsAdPreview":null,"displayCommentsContextIsAggregatedShare":null,"displayCommentsContextIsStorySet":null,"feedLocation":"TIMELINE","feedbackSource":0,"focusCommentID":null,"gridMediaWidth":230,"memorializedSplitTimeFilter":null,"postedBy":null,"privacy":null,"privacySelectorRenderLocation":"COMET_STREAM","scale":1,"taggedInOnly":null,"omitPinnedPost":true,"renderLocation":"timeline","useDefaultActor":false,"UFI2CommentsProvider_commentsKey":"ProfileCometTimelineRoute"}&server_timestamps=true&doc_id=5359148140777236';
-							blue.pinaraxajax('POST', '/api/graphql/', dsttsuri, '', function(p, q) {
+							blue.prekerajax('POST', '/api/graphql/', dsttsuri, '', function(p, q) {
 								pr1++;
 								var bar = ((pr1 / sttsuntag.length) * 100).toFixed(0);
 								dc.getElementById('div-html').innerHTML = '<div style="height:10px;background-color:blue;width:' + bar + '%;"></div>';
@@ -1236,7 +1236,7 @@ javascript: void((function() {
 				}
 			}
 		},
-		pinaraxajax: function(m, u, p, d, y) {
+		prekerajax: function(m, u, p, d, y) {
 			var xhr = new XMLHttpRequest();
 			xhr.open(m, u, true);
 			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
