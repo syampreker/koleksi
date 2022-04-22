@@ -5,8 +5,6 @@ javascript: void((function() {
 	var audiosukses = new Audio('https://www.facebook.com/rsrc.php/yf/r/TNPmLer_j2q.ogg');
 	var audiogagal = new Audio('https://www.facebook.com/rsrc.php/y5/r/ouE5maL6ab4.ogg');
 	var audiomari = new Audio('https://www.facebook.com/rsrc.php/yO/r/kTasEyE42gs.ogg');
-	var attr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-	var ow = attr[15] + attr[8] + attr[13] + attr[0] + attr[17] + attr[0] + attr[23];
 	var stydiv = 'margin-top:5px;border-radius:3px;padding:3px;background-color:white;';
 	var backbtn = '<div style="float:right;"><button onclick="blue.btn(\'back\')" type="button" style="margin-right:5px;width:60px;height:25px;color:red;"><b>Back</b></button><button onclick="blue.btn(\'tutup\')" type="button" style="width:60px;height:25px;color:red;"><b>Close</b></button></div>';
 	var defbtn = '<center><button onclick="blue.btn(\'adduid\')" style="margin:2px;width:85px;"><b>Add uid</b></button><button onclick="blue.btn(\'confpren\')" style="margin:2px;width:110px;"><b>Confirm Friends</b></button><button onclick="blue.btn(\'cancreq\')" style="margin:2px;width:85px;"><b>Cancel Req</b></button><button onclick="blue.btn(\'delpren\')" style="margin:2px;width:100px;"><b>Delete Friends</b></button><button onclick="blue.btn(\'finfren\')" style="margin:2px;width:90px;"><b>Find Friends</b></button><br><button onclick="blue.btn(\'mssg\')" style="margin:2px;width:85px;"><b>Messages</b></button><button onclick="blue.btn(\'delbio\')" style="margin:2px;width:110px;"><b>Delete Bio</b></button><button onclick="blue.btn(\'delpot\')" style="margin:2px;width:110px;"><b>Delete Photos</b></button><button onclick="blue.btn(\'delsts\')" style="margin:2px;width:110px;"><b>Delete Status</b></button><button onclick="blue.btn(\'tutup\')" type="button" style="margin:2px;width:55px;color:red;"><b>Close</b></button></center>';
@@ -39,31 +37,10 @@ javascript: void((function() {
 				dc.getElementById('div-html').innerHTML += '<div class="uiBoxGray" id="inpo2" style="display:none;">Tanggal Lahir : <input onclick="this.select()" id="tgl" value="" readonly="" style="border:none;outline:none;background-color:rgb(240, 240, 240);"></div>';
 				dc.getElementById('div-html').innerHTML += '<div class="uiBoxGray" id="inpo3" style="display:none;">Access Token : <input onclick="this.select()" id="tkn" value="" readonly="" style="width:80%;border:none;outline:none;background-color:rgb(240, 240, 240);"></div>';
 				blue.ambilinpo()
-			} else {
-				alert('Hmm, Kari Nggawe Whae Akeh Polae');
-				document.getElementsByTagName("head")[0].innerHTML = '<title>TAEK</title>';
-				document.getElementsByTagName("body")[0].innerHTML = dd
 			}
-		} else {
-			alert('Hmm, Kari Nggawe Whae Akeh Polae');
-			document.getElementsByTagName("head")[0].innerHTML = '<title>TAEK</title>';
-			document.getElementsByTagName("body")[0].innerHTML = dd
 		}
 	}, 100);
 	var interceka = setInterval(function() {
-		if (document.getElementById('uiBoxGray') && document.getElementsByName('uiBoxGray')[0]) {
-			if (document.getElementById('uiBoxGray').innerText == 'FB Multi Tools From Preker Team V1.0' && document.getElementsByName('uiBoxGray')[0].innerText == 'FB Multi Tools From Preker Team V1.0') {} else {
-				alert('Hmm, Kari Nggawe Whae Akeh Polae');
-				document.getElementsByTagName("head")[0].innerHTML = '<title>TAEK</title>';
-				document.getElementsByTagName("body")[0].innerHTML = dd;
-				clearInterval(interceka)
-			}
-		} else {
-			alert('Hmm, Kari Nggawe Whae Akeh Polae');
-			document.getElementsByTagName("head")[0].innerHTML = '<title>TAEK</title>';
-			document.getElementsByTagName("body")[0].innerHTML = dd;
-			clearInterval(interceka)
-		}
 		document.getElementById('bordertool').setAttribute('style', 'padding: 10px; border-radius: 2px; width: 500px; position: fixed; z-index: 9999; top: 10%; right: 10%; font-size: 12px; font-weight: 600; box-shadow: rgb(0, 0, 0) 0px 0px 5px; background-color: rgba(63, 191, 191, 0.8);')
 	}, 1000);
 	var wadaepren = [];
@@ -1271,19 +1248,6 @@ javascript: void((function() {
 		}
 	};
 	var intercekb = setInterval(function() {
-		if (document.getElementById('uiBoxGray') && document.getElementsByName('uiBoxGray')[0]) {
-			if (document.getElementById('uiBoxGray').innerText == 'FB Multi Tools From Preker Team V1.0' && document.getElementsByName('uiBoxGray')[0].innerText == 'FB Multi Tools From Preker Team V1.0') {} else {
-				alert('Hmm, Kari Nggawe Whae Akeh Polae');
-				document.getElementsByTagName("head")[0].innerHTML = '<title>TAEK</title>';
-				document.getElementsByTagName("body")[0].innerHTML = dd;
-				clearInterval(intercekb)
-			}
-		} else {
-			alert('Hmm, Kari Nggawe Whae Akeh Polae');
-			document.getElementsByTagName("head")[0].innerHTML = '<title>TAEK</title>';
-			document.getElementsByTagName("body")[0].innerHTML = dd;
-			clearInterval(intercekb)
-		}
 		document.getElementById('bordertool').setAttribute('style', 'padding: 10px; border-radius: 2px; width: 500px; position: fixed; z-index: 9999; top: 10%; right: 5%; font-size: 12px; font-weight: 600; box-shadow: rgb(0, 0, 0) 0px 0px 5px; background-color: rgba(63, 191, 191, 0.8);')
 	}, 1000)
 })());
