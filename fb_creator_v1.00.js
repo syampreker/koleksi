@@ -22,7 +22,7 @@ javascript: window.onload=(function(){
   })();
 
   if(/reg/.test(window.location.href)){
-    var gm=prompt("Input Gmail:", "mailpcx04@gmail.com");
+    var gm=prompt("Input Gmail:", "");
     if (d.getElementsByName("lastname")[0]) {
       d.getElementsByName("lastname")[0].value=f[Math.floor(Math.random()*f.length)];
     }
@@ -41,7 +41,7 @@ javascript: window.onload=(function(){
       d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click()
     },200)
   }else if (/r.php/.test(window.location.href)) {
-    var gm=prompt("Input Gmail:", "mailpcx04@gmail.com");
+    var gm=prompt("Input Gmail:", "");
     if (d.getElementsByName("lastname")[0]) {
       d.getElementsByName("lastname")[0].value=f[Math.floor(Math.random()*f.length)];
     }
