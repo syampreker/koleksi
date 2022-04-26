@@ -23,41 +23,63 @@ javascript: window.onload=(function(){
 
   if(/reg/.test(window.location.href)){
     var gm=prompt("Input Gmail:", "");
+    localStorage.setItem("gmail", gm);
     if (d.getElementsByName("lastname")[0]) {
+      d.getElementsByName("firstname")[0].value=f[Math.floor(Math.random()*f.length)];
       d.getElementsByName("lastname")[0].value=f[Math.floor(Math.random()*f.length)];
+    }else {
+      d.getElementsByName("firstname")[0].value=f[Math.floor(Math.random()*f.length)] + ' ' + f[Math.floor(Math.random()*f.length)];
     }
-    d.getElementsByName("firstname")[0].value=f[Math.floor(Math.random()*f.length)],
-    d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click(),
+    if (d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0]) {
+      d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click();
+    }
     d.getElementsByName("birthday_day")[0].value=random(1,28),
     d.getElementsByName("birthday_month")[0].value=random(1,12),
-    d.getElementsByName("birthday_year")[0].value=random(1999,2005),
-    d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click(),
-    d.getElementsByName("reg_email__")[0].value=gm,
-    d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click(),
-    d.getElementsByName('sex')[0].checked=true,
-    d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click(),
+    d.getElementsByName("birthday_year")[0].value=random(1999,2005);
+    if (d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0]) {
+      d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click();
+    }
+    d.getElementsByName("reg_email__")[0].value=gm;
+    if (d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0]) {
+      d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click();
+    }
+    d.getElementsByName('sex')[0].checked=true;
+    if (d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0]) {
+      d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click();
+    }
     d.getElementsByName("reg_passwd__")[0].value=pwd(),
     setTimeout(function(){
-      d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click()
+      d.getElementsByName('submit')[0].click();
     },200)
   }else if (/r.php/.test(window.location.href)) {
     var gm=prompt("Input Gmail:", "");
+    localStorage.setItem("gmail", gm);
     if (d.getElementsByName("lastname")[0]) {
+      d.getElementsByName("firstname")[0].value=f[Math.floor(Math.random()*f.length)];
       d.getElementsByName("lastname")[0].value=f[Math.floor(Math.random()*f.length)];
+    }else {
+      d.getElementsByName("firstname")[0].value=f[Math.floor(Math.random()*f.length)] + ' ' + f[Math.floor(Math.random()*f.length)];
     }
-    d.getElementsByName("firstname")[0].value=f[Math.floor(Math.random()*f.length)],
-    d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click(),
+    if (d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0]) {
+      d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click();
+    }
     d.getElementsByName("birthday_day")[0].value=random(1,28),
     d.getElementsByName("birthday_month")[0].value=random(1,12),
-    d.getElementsByName("birthday_year")[0].value=random(1999,2005),
-    d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click(),
-    d.getElementsByName("reg_email__")[0].value=gm,
-    d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click(),
-    d.getElementsByName('sex')[0].checked=true,
-    d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click(),
+    d.getElementsByName("birthday_year")[0].value=random(1999,2005);
+    if (d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0]) {
+      d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click();
+    }
+    d.getElementsByName("reg_email__")[0].value=gm;
+    if (d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0]) {
+      d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click();
+    }
+    d.getElementsByName('sex')[0].checked=true;
+    if (d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0]) {
+      d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click();
+    }
     d.getElementsByName("reg_passwd__")[0].value=pwd(),
     setTimeout(function(){
-      d.getElementsByClassName("_54k8 _8x0i _8x0j _9adg _723k")[0].click()
+      d.getElementsByName('submit')[0].click();
     },200)
   }else if (/save-device/.test(window.location.href)) {
     var uid=document.cookie.match(/c_user=(\d+)/)[1];
@@ -65,9 +87,13 @@ javascript: window.onload=(function(){
     window.location.href = "/confirmemail.php";
   }else if (/gettingstarted/.test(window.location.href)) {
     window.location.href = "/settings/security/password/";
+  }else if (/home.php/.test(window.location.href)) {
+    window.location.href = "/settings/security/password/";
   }else if (/password/.test(window.location.href)) {
     if (/survey/.test(window.location.href)) {
       window.location.href = "/settings/email/add";
+    }else if (/ntdelegatescreen/.test(window.location.href)) {
+      window.location.href = "/settings/security/password/";
     }else {
       d.getElementsByName("password_old")[0].value=localStorage.getItem("pwd"),
       d.getElementsByName("password_new")[0].value="narkoba5",
