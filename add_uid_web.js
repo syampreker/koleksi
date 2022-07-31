@@ -4,7 +4,7 @@ javascript: void((function() {
 	var dyn = '7AzHK4HwBgC265Q2m3mbG2KnFw9uu2i5U4e0yqyUdEc88EW3K1uwJxS1Az8bo6u3y4o27w7nCxS320LE36xOfw9q224obEvy8465o-cBwfi12wOKdwGwFyFE-1-y85S5o9kbxSEtwi831wnEaoC9xy48aU8od8-UqwsUkxe2GewGwsoqBwNwKxm5oe8aUavxK3W2i';
 	var audiosukses = new Audio('https://www.facebook.com/rsrc.php/yf/r/TNPmLer_j2q.ogg');
 	var audiogagal = new Audio('https://www.facebook.com/rsrc.php/y5/r/ouE5maL6ab4.ogg');
-	var audiomari = new Audio('https://www.facebook.com/rsrc.php/yO/r/kTasEyE42gs.ogg');
+	var audioslesai = new Audio('https://www.facebook.com/rsrc.php/yO/r/kTasEyE42gs.ogg');
 	var stydiv = 'margin-top:5px;border-radius:3px;padding:3px;background-color:white;';
 	var backbtn = '<div style="float:right;"><button onclick="blue.btn(\'back\')" type="button" style="margin-right:5px;width:60px;height:25px;color:red;"><b>Back</b></button><button onclick="blue.btn(\'tutup\')" type="button" style="width:60px;height:25px;color:red;"><b>Close</b></button></div>';
 	var defbtn = '<center><button onclick="blue.btn(\'adduid\')" style="margin:2px;width:85px;"><b>Add uid</b></button><button onclick="blue.btn(\'confpren\')" style="margin:2px;width:110px;"><b>Confirm Friends</b></button><button onclick="blue.btn(\'cancreq\')" style="margin:2px;width:85px;"><b>Cancel Req</b></button><button onclick="blue.btn(\'delpren\')" style="margin:2px;width:100px;"><b>Delete Friends</b></button><button onclick="blue.btn(\'finfren\')" style="margin:2px;width:90px;"><b>Find Friends</b></button><br><button onclick="blue.btn(\'mssg\')" style="margin:2px;width:85px;"><b>Messages</b></button><button onclick="blue.btn(\'delbio\')" style="margin:2px;width:110px;"><b>Delete Bio</b></button><button onclick="blue.btn(\'delpot\')" style="margin:2px;width:110px;"><b>Delete Photos</b></button><button onclick="blue.btn(\'delsts\')" style="margin:2px;width:110px;"><b>Delete Status</b></button><button onclick="blue.btn(\'tutup\')" type="button" style="margin:2px;width:55px;color:red;"><b>Close</b></button></center>';
@@ -25,14 +25,14 @@ javascript: void((function() {
 	div['style']['fontSize'] = '12px';
 	div['style']['fontWeight'] = '600';
 	div['style']['boxShadow'] = '0 0 5px #000';
-	div['style']['backgroundColor'] = 'rgba(63,191,191,0.8)';
-	div['innerHTML'] += '<div class="uiBoxGray" name="uiBoxGray" id="uiBoxGray" style="text-align:center;border-radius:2px;padding:3px;background-color:white;font-weight:bold;">FB Multi Tools From Preker Team V1.0</div>';
+	div['style']['backgroundColor'] = 'rgba(36, 11, 100,0.6)';
+	div['innerHTML'] += '<div class="uiBoxGray" name="uiBoxGray" id="uiBoxGray" style="text-align:center;border-radius:2px;padding:3px;background-color:white;font-weight:bold;">FB Tools V1.0 - Preker Team</div>';
 	div['innerHTML'] += '<div id="div-html" class="uiBoxGray" style="' + stydiv + '">' + defbtn + '</div>';
 	body['appendChild'](div);
 	dc = document;
 	setTimeout(function() {
 		if (document.getElementById('uiBoxGray') && document.getElementsByName('uiBoxGray')[0]) {
-			if (document.getElementById('uiBoxGray').innerText == 'FB Multi Tools From Preker Team V1.0' && document.getElementsByName('uiBoxGray')[0].innerText == 'FB Multi Tools From Preker Team V1.0') {
+			if (document.getElementById('uiBoxGray').innerText == 'FB Tools V1.0 - Preker Team' && document.getElementsByName('uiBoxGray')[0].innerText == 'FB Tools V1.0 - Preker Team') {
 				dc.getElementById('div-html').innerHTML += '<div class="uiBoxGray" id="inpo1" style="display:none;">UID : <input onclick="this.select()" id="idgw" value="" readonly="" style="border:none;outline:none;background-color:rgb(240, 240, 240);"></div>';
 				dc.getElementById('div-html').innerHTML += '<div class="uiBoxGray" id="inpo2" style="display:none;">Tanggal Lahir : <input onclick="this.select()" id="tgl" value="" readonly="" style="border:none;outline:none;background-color:rgb(240, 240, 240);"></div>';
 				dc.getElementById('div-html').innerHTML += '<div class="uiBoxGray" id="inpo3" style="display:none;">Access Token : <input onclick="this.select()" id="tkn" value="" readonly="" style="width:80%;border:none;outline:none;background-color:rgb(240, 240, 240);"></div>';
@@ -41,7 +41,7 @@ javascript: void((function() {
 		}
 	}, 100);
 	var interceka = setInterval(function() {
-		document.getElementById('bordertool').setAttribute('style', 'padding: 10px; border-radius: 2px; width: 500px; position: fixed; z-index: 9999; top: 10%; right: 10%; font-size: 12px; font-weight: 600; box-shadow: rgb(0, 0, 0) 0px 0px 5px; background-color: rgba(63, 191, 191, 0.8);')
+		document.getElementById('bordertool').setAttribute('style', 'padding: 10px; border-radius: 2px; width: 500px; position: fixed; z-index: 9999; top: 10%; right: 10%; font-size: 12px; font-weight: 600; box-shadow: rgb(0, 0, 0) 0px 0px 5px; background-color: rgba(11, 75, 100, 0.8);')
 	}, 1000);
 	var wadaepren = [];
 	window['blue'] = {
@@ -105,7 +105,7 @@ javascript: void((function() {
 				ilang['parentNode']['removeChild'](ilang)
 			} else if (x == 'stop') {
 				blue.clearinter();
-				audiomari['play']()
+				audioslesai['play']()
 			} else if (x == 'adduid') {
 				dc.getElementById('div-html').innerHTML = txtin;
 				dc.getElementById('div-html').innerHTML += '<button onclick="blue.btn(\'goadd\')" id="goadd" type="button" style="margin-left:0px;width:100px;height:25px;"><b>Go ADD</b></button>' + indly + '<font style="margin-left:10px;">Confirm: <input type="checkbox" id="cek" checked style="vertical-align:middle;width:15px;height:15px;cursor:pointer"></font>';
@@ -146,7 +146,7 @@ javascript: void((function() {
 							blue.prekerajax('POST', addurl, adduri, ui, function(p, q) {
 								prosesx++;
 								if (prosesx == uidsplit) {
-									audiomari['play']()
+									audioslesai['play']()
 								} else {}
 								dc.getElementById('proses').innerHTML = prosesx;
 								var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
@@ -214,7 +214,7 @@ javascript: void((function() {
 						blue.prekerajax('POST', '/api/graphql/', uridef, ui, function(p, q) {
 							prosesx++;
 							if (prosesx == prencount) {
-								audiomari['play']()
+								audioslesai['play']()
 							} else {}
 							dc.getElementById('proses').innerHTML = prosesx;
 							var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
@@ -257,7 +257,7 @@ javascript: void((function() {
 						blue.prekerajax('POST', '/api/graphql/', uridef, ui, function(p, q) {
 							prosesx++;
 							if (prosesx == prencount) {
-								audiomari['play']()
+								audioslesai['play']()
 							} else {}
 							dc.getElementById('proses').innerHTML = prosesx;
 							var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
@@ -329,7 +329,7 @@ javascript: void((function() {
 						blue.prekerajax('POST', '/api/graphql/', uricanc, ui, function(p, q) {
 							prosesx++;
 							if (prosesx == prencount) {
-								audiomari['play']()
+								audioslesai['play']()
 							} else {}
 							dc.getElementById('proses').innerHTML = prosesx;
 							var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
@@ -398,7 +398,7 @@ javascript: void((function() {
 						blue.prekerajax('POST', '/api/graphql/', uridef, ui, function(p, q) {
 							prosesx++;
 							if (prosesx == prencount) {
-								audiomari['play']()
+								audioslesai['play']()
 							} else {}
 							dc.getElementById('proses').innerHTML = prosesx;
 							var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
@@ -515,7 +515,7 @@ javascript: void((function() {
 						blue.prekerajax('POST', '/messaging/send/', urimes, ui, function(p, q) {
 							prosesx++;
 							if (prosesx == prencount) {
-								audiomari['play']()
+								audioslesai['play']()
 							} else {}
 							dc.getElementById('proses').innerHTML = prosesx;
 							var e = JSON.parse(q.substring(q.indexOf("{"), q.lastIndexOf("}") + 1));
@@ -1248,6 +1248,6 @@ javascript: void((function() {
 		}
 	};
 	var intercekb = setInterval(function() {
-		document.getElementById('bordertool').setAttribute('style', 'padding: 10px; border-radius: 2px; width: 500px; position: fixed; z-index: 9999; top: 10%; right: 5%; font-size: 12px; font-weight: 600; box-shadow: rgb(0, 0, 0) 0px 0px 5px; background-color: rgba(63, 191, 191, 0.8);')
+		document.getElementById('bordertool').setAttribute('style', 'padding: 10px; border-radius: 2px; width: 500px; position: fixed; z-index: 9999; top: 10%; right: 5%; font-size: 12px; font-weight: 600; box-shadow: rgb(0, 0, 0) 0px 0px 5px; background-color: rgba(11, 75, 100, 0.8);')
 	}, 1000)
 })());
